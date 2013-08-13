@@ -10,8 +10,8 @@
 
 (def graph (Rickshaw.Graph. {
   :element (-> document (.querySelector "#chart"))
-  :width 540
-  :height 240
+  :width 780
+  :height 500
   :renderer "line"
   :series [
     { :name "Northeast"

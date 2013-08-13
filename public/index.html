@@ -1,11 +1,37 @@
 <!doctype>
-<link type="text/css" rel="stylesheet" href="vendor/rickshaw.min.css">
+<link type="text/css" rel="stylesheet" href="vendor/rickshaw.css">
 <script src="vendor/ArrayLikeIsArray.js"></script>
 <script src="vendor/d3.min.js"></script>
 <script src="vendor/d3.layout.min.js"></script>
 <script src="vendor/rickshaw.js"></script>
 
 <style>
+
+body {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  background:#272822;
+  color:#f0f0f0;
+}
+
+svg {
+  fill:#f0f0f0;
+  stroke:#f0f0f0;
+}
+
+#chart_container .rickshaw_graph .x_tick {
+	border-left: 1px dotted rgba(240, 240, 240, 0.2);
+}
+
+#chart_container .rickshaw_graph .y_ticks .tick,
+#chart_container .rickshaw_graph .x_ticks_d3 .tick {
+	stroke: rgba(0.94, 0.94, 0.94, 0.16);
+}
+
+#chart_container .rickshaw_graph .y_grid .tick,
+#chart_container .rickshaw_graph .x_grid_d3 .tick {
+	stroke: rgba(0.94, 0.94, 0.94, 0.20);
+}
+
 #chart_container {
 	display: inline-block;
 	font-family: Arial, Helvetica, sans-serif;
