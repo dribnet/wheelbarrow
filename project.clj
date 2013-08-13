@@ -1,7 +1,7 @@
 (defproject acute "0.0.1-SNAPSHOT"
   :description "wheelbarrow: experimental rickshaw library"
   :dependencies [[org.clojure/clojure "1.5.1"]
-                 [net.drib/mrhyde "0.5.1"]]
+                 [net.drib/mrhyde "0.5.2"]]
   :min-lein-version "2.0.0"
   :source-paths ["src/clj" "src/cljs"]
 
@@ -12,7 +12,7 @@
       :source-paths ["src/cljs"]
       :compiler {
         :output-to "public/out/wheelbarrow.js"
-        ; :optimizations :whitespace
         :pretty-print true 
+        ; :optimizations :whitespace
         :optimizations :simple
         }}]})
