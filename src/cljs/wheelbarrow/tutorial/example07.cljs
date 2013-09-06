@@ -1,7 +1,9 @@
 (ns wheelbarrow.tutorial.example07
-  (:require [wheelbarrow :refer [Rickshaw bootstrap]]))
+  (:require [mrhyde.core :as mrhyde]))
 
-(bootstrap)
+(mrhyde/bootstrap)
+
+(def Rickshaw (this-as ct (aget ct "Rickshaw")))
 
 (def document js/document)
 
@@ -28,8 +30,7 @@
     { :name "West"
       :data [ { :x -1893456000 :y 7082086 } { :x -1577923200 :y 9213920 } { :x -1262304000 :y 12323836 } { :x -946771200 :y 14379119 } { :x -631152000 :y 20189962 } { :x -315619200 :y 28053104 } { :x 0 :y 34804193 } { :x 315532800 :y 43172490 } { :x 631152000 :y 52786082 } { :x 946684800 :y 63197932 } { :x 1262304000 :y 71945553 } ]
       :color (-> palette .color)
-    }]
-}))
+    }]}))
 
 (def x_axis
   (Rickshaw.Graph.Axis.Time. { :graph graph }))
@@ -39,14 +40,12 @@
     :graph graph
     :orientation "left"
     :tickFormat (-> Rickshaw .-Fixtures .-Number .-formatKMBT)
-    :element (-> document (.getElementById "y_axis"))
-}))
+    :element (-> document (.getElementById "y_axis"))}))
 
 (def legend
   (Rickshaw.Graph.Legend. {
     :element (-> document (.querySelector "#legend"))
-    :graph graph
-}))
+    :graph graph}))
 
 (def offsetForm 
   (-> document (.getElementById "offset_form")))
