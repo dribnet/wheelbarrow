@@ -1,9 +1,10 @@
 (ns wheelbarrow.tutorial.example07
-  (:require [mrhyde.core :as mrhyde]))
+  (:require [mrhyde.core :as mrhyde]
+            [mrhyde.extend-js]))
 
 (mrhyde/bootstrap)
 
-(def Rickshaw (this-as ct (aget ct "Rickshaw")))
+(def Rickshaw (this-as ct (:Rickshaw ct)))
 
 (def document js/document)
 
@@ -39,7 +40,7 @@
   (Rickshaw.Graph.Axis.Y. {
     :graph graph
     :orientation "left"
-    :tickFormat (-> Rickshaw .-Fixtures .-Number .-formatKMBT)
+    :tickFormat (get-in Rickshaw [:Fixtures :Number :formatKMBT])
     :element (-> document (.getElementById "y_axis"))}))
 
 (def legend
@@ -51,15 +52,15 @@
   (-> document (.getElementById "offset_form")))
 
 (-> offsetForm (.addEventListener "change" (fn [e]
-  (let [offsetMode (-> e .-target .-value)]
+  (let [offsetMode (get-in e [:target :value])]
     (if (= offsetMode "lines") 
       (do
         (-> graph (.setRenderer "line"))
-        (aset graph "offset" "zero"))
+        (assoc! graph :offset "zero"))
       ; else
       (do
         (-> graph (.setRenderer "stack"))
-        (aset graph "offset" offsetMode))))
+        (assoc! graph :offset offsetMode))))
   (-> graph (.render))) false))
 
 (-> graph .render)
